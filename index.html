@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./src/css/estilo.css" />
+  <title>Lava Rápido</title>
+</head>
+<body>
+  <header class="cabecalho">
+    <h1>Lava Rápido</h1>
+    <p>ENDEREÇO</p>
+    <p>
+      <a href="#" class="wpp" target="_blank">Telefone (11)98888-8888</a>
+    </p>
+    <p>Horário de Funcionamento: 08:00 - 18:00</p>
+    <p>Fazemos a retirada do veículo para lavagem.</p>
+  </header>
+
+  <main class="conteudo">
+    <section class="valores">
+      <h2>Valores por tipo de veículo</h2>
+      <ul>
+        <li>🚗 Carros Pequenos: R$60,00</li>
+        <li>🚙 Caminhonetes: R$100,00</li>
+        <li>🚐 Vans: R$150,00</li>
+        <li>🚛 Caminhões: R$200,00</li>
+      </ul>
+    </section>
+
+    <section class="formulario">
+      <h2>Solicitar retirada do veículo</h2>
+
+      <form onsubmit="enviarSolicitacao(event)">
+        <label for="nome">Seu nome:</label>
+        <input type="text" id="nome" required />
+
+        <label for="endereco">Endereço completo:</label>
+        <input type="text" id="endereco" required />
+
+        <label for="tipo-veiculo">Tipo de veículo:</label>
+        <select id="tipo-veiculo" required>
+          <option value="">Selecione</option>
+
+          <optgroup label="Carros Pequenos">
+            <option value="Pequeno">HB20</option>
+            <option value="Pequeno">Gol</option>
+            <option value="Pequeno">Fiesta</option>
+            <option value="Pequeno">Onix</option>
+            <option value="Pequeno">Uno</option>
+            <option value="Pequeno">Ka</option>
+            <option value="Pequeno">March</option>
+            <option value="Pequeno">Sandero</option>
+            <option value="Pequeno">Palio</option>
+            <option value="Pequeno">Celta</option>
+            <option value="Pequeno">Fox</option>
+            <option value="Pequeno">Corsa</option>
+            <option value="Pequeno">Up!</option>
+            <option value="Pequeno">207</option>
+            <option value="Pequeno">Clio</option>
+            <option value="Pequeno">Agile</option>
+            <option value="Pequeno">Logan</option>
+            <option value="Pequeno">Astra</option>
+            <option value="Pequeno">Classic</option>
+            <option value="Pequeno">Twingo</option>
+          </optgroup>
+
+          <optgroup label="Carros Médios">
+            <option value="Medio">Civic</option>
+            <option value="Medio">Corolla</option>
+            <option value="Medio">Cruze</option>
+            <option value="Medio">Focus</option>
+            <option value="Medio">Sentra</option>
+            <option value="Medio">Jetta</option>
+            <option value="Medio">Cerato</option>
+            <option value="Medio">Fusion</option>
+            <option value="Medio">Elantra</option>
+            <option value="Medio">C4 Lounge</option>
+            <option value="Medio">Vectra</option>
+            <option value="Medio">Brava</option>
+            <option value="Medio">Linea</option>
+            <option value="Medio">Marea</option>
+            <option value="Medio">Lancer</option>
+            <option value="Medio">408</option>
+            <option value="Medio">Impreza</option>
+            <option value="Medio">Golf</option>
+            <option value="Medio">Passat</option>
+            <option value="Medio">A3</option>
+          </optgroup>
+
+          <optgroup label="Carros Grandes">
+            <option value="Grande">Hilux</option>
+            <option value="Grande">S10</option>
+            <option value="Grande">Ranger</option>
+            <option value="Grande">Frontier</option>
+            <option value="Grande">Toro</option>
+            <option value="Grande">Duster</option>
+            <option value="Grande">Compass</option>
+            <option value="Grande">Renegade</option>
+            <option value="Grande">Tucson</option>
+            <option value="Grande">Creta</option>
+            <option value="Grande">HR-V</option>
+            <option value="Grande">Captiva</option>
+            <option value="Grande">Ecosport</option>
+            <option value="Grande">Trailblazer</option>
+            <option value="Grande">SW4</option>
+            <option value="Grande">Santa Fe</option>
+            <option value="Grande">Kicks</option>
+            <option value="Grande">X1</option>
+            <option value="Grande">Tiguan</option>
+            <option value="Grande">Q3</option>
+          </optgroup>
+
+          <optgroup label="Vans e Caminhões">
+            <option value="Van">Sprinter</option>
+            <option value="Van">Ducato</option>
+            <option value="Van">Boxer</option>
+            <option value="Van">Master</option>
+            <option value="Van">Daily</option>
+            <option value="Caminhao">F-350</option>
+            <option value="Caminhao">F-4000</option>
+            <option value="Caminhao">710</option>
+            <option value="Caminhao">Accelo</option>
+            <option value="Caminhao">Atego</option>
+            <option value="Caminhao">Constellation</option>
+            <option value="Caminhao">Cargo</option>
+            <option value="Caminhao">Delivery</option>
+            <option value="Caminhao">FH 540</option>
+            <option value="Caminhao">Axor</option>
+            <option value="Caminhao">Actros</option>
+            <option value="Caminhao">Scania R440</option>
+            <option value="Caminhao">Scania G420</option>
+            <option value="Caminhao">Iveco Stralis</option>
+            <option value="Caminhao">Volkswagen Worker</option>
+          </optgroup>
+        </select>
+
+        <button type="submit">Enviar via WhatsApp</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>&copy; 2025 Lava Rápido. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="./src/js/script.js"></script>
+</body>
+</html>
