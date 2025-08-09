@@ -1,37 +1,79 @@
-function enviarSolicitacao(evento) {
-  evento.preventDefault(); // Impede o envio padrão para não recarregar a página
+  const precosBase = {
+    pequeno: 60,
+    caminhonete: 100,
+    van: 150,
+    caminhao: 200,
+    moto: 100
+  };
 
-  // Pega os valores dos campos do formulário
-  const nome = document.getElementById("nome").value.trim();
-  const endereco = document.getElementById("endereco").value.trim();
-  const tipoVeiculo = document.getElementById("tipo-veiculo").value;
+  let valorBase = 0; // guarda o valor inicial do veículo
 
-  // Coleta os checkboxes marcados
-  const servicosSelecionados = Array.from(
-    document.querySelectorAll('input[name="servicos"]:checked')
-  ).map(el => el.nextSibling.textContent.trim() || el.value);
+  function selecionarVeiculo() {
+    const tipoVeiculo = document.getElementById("tipo-veiculo").value;
+    if (!tipoVeiculo) return;
 
-  // Número de WhatsApp para onde a mensagem será enviada
-  const numeroWhatsApp = "5511949409834";
+    // Define valor base
+    valorBase = precosBase[tipoVeiculo] || 0;
 
-  // Verifica se todos os campos obrigatórios foram preenchidos
-  if (!nome || !endereco || !tipoVeiculo || servicosSelecionados.length === 0) {
-    alert("Por favor, preencha todos os campos e selecione pelo menos um serviço antes de enviar.");
-    return;
+    // Marca lavagem completa e desmarca lavagem simples
+    const lavagemCompleta = document.querySelector('input[value="lavagem-rapida-completa"]');
+    const lavagemSimples = document.querySelector('input[value="lavagem-simples"]');
+    if (lavagemCompleta) lavagemCompleta.checked = true;
+    if (lavagemSimples) lavagemSimples.checked = false;
+
+    atualizarPreco();
   }
 
-  // Monta a mensagem que será enviada pelo WhatsApp
-  const mensagem = encodeURIComponent(
-    `🚗 *Nova solicitação de lavagem:*\n\n` +
-    `👤 Nome: ${nome}\n` +
-    `📍 Endereço: ${endereco}\n` +
-    `🚙 Tipo de veículo: ${tipoVeiculo}\n` +
-    `🛠 Serviços: ${servicosSelecionados.join(", ")}`
-  );
+  function atualizarPreco() {
+    let valorTotal = valorBase;
 
-  // Cria a URL para o WhatsApp
-  const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+    const servicos = document.querySelectorAll('input[name="servicos"]');
+    servicos.forEach(servico => {
+      // Acrescenta R$20 para outros serviços (exceto lavagem simples e completa)
+      if (servico.checked && servico.value !== "lavagem-rapida-completa" && servico.value !== "lavagem-simples") {
+        valorTotal += 20;
+      }
+      // Se for lavagem simples, aplica desconto de 50% no valor base
+      if (servico.value === "lavagem-simples" && servico.checked) {
+        valorTotal = valorTotal / 2;
+      }
+    });
 
-  // Abre o link em nova aba
-  window.open(urlWhatsApp, "_blank");
-}
+    document.getElementById("valor-total").textContent = `R$ ${valorTotal.toFixed(2)}`;
+  }
+
+  function enviarSolicitacao(evento) {
+    evento.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const endereco = document.getElementById("endereco").value.trim();
+    const tipoVeiculo = document.getElementById("tipo-veiculo").value;
+    const valorFinal = document.getElementById("valor-total").textContent;
+
+    const servicosSelecionados = Array.from(
+      document.querySelectorAll('input[name="servicos"]:checked')
+    ).map(el => el.nextSibling.textContent.trim() || el.value);
+
+    if (!nome || !endereco || !tipoVeiculo || servicosSelecionados.length === 0) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    const numeroWhatsApp = "5511949409834";
+    const mensagem = encodeURIComponent(
+      `🚗 *Nova solicitação:*\n\n` +
+      `👤 Nome: ${nome}\n` +
+      `📍 Endereço: ${endereco}\n` +
+      `🚙 Veículo: ${tipoVeiculo}\n` +
+      `🛠 Serviços: ${servicosSelecionados.join(", ")}\n` +
+      `💰 Valor Total: ${valorFinal}`
+    );
+
+    window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, "_blank");
+  }
+
+  // Eventos
+  document.getElementById("tipo-veiculo").addEventListener("change", selecionarVeiculo);
+  document.querySelectorAll('input[name="servicos"]').forEach(input => {
+    input.addEventListener("change", atualizarPreco);
+  });

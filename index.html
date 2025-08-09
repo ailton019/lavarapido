@@ -19,6 +19,7 @@
 
   <main class="conteudo">
   <h2>Valores por tipo de veículo</h2>
+  <P><strong>Lavagem simples, o valor é 30,00 a menos da tabela.</strong></P>
   <ul class="precos">
     <li><span>🚗 Carros Pequenos</span><span><strong>R$ 60,00</strong></span></li>
     <li><span>🚙 Caminhonetes</span><span><strong>R$ 100,00</strong></span></li>
@@ -30,6 +31,8 @@
 
     <section class="formulario">
       <h2>Solicitar retirada do veículo</h2>
+
+        <p><strong>Valor total:</strong> <span id="valor-total">R$ 0,00</span></p>
 
       <form onsubmit="enviarSolicitacao(event)">
         <label for="nome">Seu nome:</label>
@@ -62,8 +65,9 @@
         <button type="submit">Enviar via WhatsApp</button>
       </form>
     </section>
-  </main>
+ 
 
+  </main>
   <footer class="rodape">
     <p>&copy; 2025 Lava Rápido. Todos os direitos reservados.</p>
   </footer>
