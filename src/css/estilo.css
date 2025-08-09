@@ -1,11 +1,12 @@
 /* Cabeçalho */
 .cabecalho {
-  background-color: #8167A5; /* mantém */
+  background-color: #7344b6; /* mantém */
   color: #f0f0a0; /* amarelo mais suave para não cansar tanto */
   padding: 25px 20px; /* um pouco mais de espaço */
   text-align: center;
   font-family: "Notable", sans-serif;
-  box-shadow: 0 3px 8px rgba(129, 103, 165, 0.4); /* leve sombra para destacar */
+  box-shadow: 0 3px 8px rgba(129, 103, 165, 0.4); /* leve sombra  destacar */
+  border-radius: 13px;
 }
 
 .cabecalho p {
