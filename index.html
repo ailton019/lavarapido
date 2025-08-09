@@ -18,15 +18,15 @@
   </header>
 
   <main class="conteudo">
-    <section class="valores">
-      <h2>Valores por tipo de veículo</h2>
-      <ul>
-        <li>🚗 Carros Pequenos: R$60,00</li>
-        <li>🚙 Caminhonetes: R$100,00</li>
-        <li>🚐 Vans: R$150,00</li>
-        <li>🚛 Caminhões: R$200,00</li>
-      </ul>
-    </section>
+  <h2>Valores por tipo de veículo</h2>
+  <ul class="precos">
+    <li><span>🚗 Carros Pequenos</span><span><strong>R$ 60,00</strong></span></li>
+    <li><span>🚙 Caminhonetes</span><span><strong>R$ 100,00</strong></span></li>
+    <li><span>🚐 Vans</span><span><strong>R$ 150,00</strong></span></li>
+    <li><span>🚛 Caminhões</span><span><strong>R$ 200,00</strong></span></li>
+    <li><span>🏍️ Motos</span><span><strong>R$ 100,00</strong></span></li>
+  </ul>
+    
 
     <section class="formulario">
       <h2>Solicitar retirada do veículo</h2>
@@ -41,99 +41,23 @@
         <label for="tipo-veiculo">Tipo de veículo:</label>
         <select id="tipo-veiculo" required>
           <option value="">Selecione</option>
-
-          <optgroup label="Carros Pequenos">
-            <option value="Pequeno">HB20</option>
-            <option value="Pequeno">Gol</option>
-            <option value="Pequeno">Fiesta</option>
-            <option value="Pequeno">Onix</option>
-            <option value="Pequeno">Uno</option>
-            <option value="Pequeno">Ka</option>
-            <option value="Pequeno">March</option>
-            <option value="Pequeno">Sandero</option>
-            <option value="Pequeno">Palio</option>
-            <option value="Pequeno">Celta</option>
-            <option value="Pequeno">Fox</option>
-            <option value="Pequeno">Corsa</option>
-            <option value="Pequeno">Up!</option>
-            <option value="Pequeno">207</option>
-            <option value="Pequeno">Clio</option>
-            <option value="Pequeno">Agile</option>
-            <option value="Pequeno">Logan</option>
-            <option value="Pequeno">Astra</option>
-            <option value="Pequeno">Classic</option>
-            <option value="Pequeno">Twingo</option>
-          </optgroup>
-
-          <optgroup label="Carros Médios">
-            <option value="Medio">Civic</option>
-            <option value="Medio">Corolla</option>
-            <option value="Medio">Cruze</option>
-            <option value="Medio">Focus</option>
-            <option value="Medio">Sentra</option>
-            <option value="Medio">Jetta</option>
-            <option value="Medio">Cerato</option>
-            <option value="Medio">Fusion</option>
-            <option value="Medio">Elantra</option>
-            <option value="Medio">C4 Lounge</option>
-            <option value="Medio">Vectra</option>
-            <option value="Medio">Brava</option>
-            <option value="Medio">Linea</option>
-            <option value="Medio">Marea</option>
-            <option value="Medio">Lancer</option>
-            <option value="Medio">408</option>
-            <option value="Medio">Impreza</option>
-            <option value="Medio">Golf</option>
-            <option value="Medio">Passat</option>
-            <option value="Medio">A3</option>
-          </optgroup>
-
-          <optgroup label="Carros Grandes">
-            <option value="Grande">Hilux</option>
-            <option value="Grande">S10</option>
-            <option value="Grande">Ranger</option>
-            <option value="Grande">Frontier</option>
-            <option value="Grande">Toro</option>
-            <option value="Grande">Duster</option>
-            <option value="Grande">Compass</option>
-            <option value="Grande">Renegade</option>
-            <option value="Grande">Tucson</option>
-            <option value="Grande">Creta</option>
-            <option value="Grande">HR-V</option>
-            <option value="Grande">Captiva</option>
-            <option value="Grande">Ecosport</option>
-            <option value="Grande">Trailblazer</option>
-            <option value="Grande">SW4</option>
-            <option value="Grande">Santa Fe</option>
-            <option value="Grande">Kicks</option>
-            <option value="Grande">X1</option>
-            <option value="Grande">Tiguan</option>
-            <option value="Grande">Q3</option>
-          </optgroup>
-
-          <optgroup label="Vans e Caminhões">
-            <option value="Van">Sprinter</option>
-            <option value="Van">Ducato</option>
-            <option value="Van">Boxer</option>
-            <option value="Van">Master</option>
-            <option value="Van">Daily</option>
-            <option value="Caminhao">F-350</option>
-            <option value="Caminhao">F-4000</option>
-            <option value="Caminhao">710</option>
-            <option value="Caminhao">Accelo</option>
-            <option value="Caminhao">Atego</option>
-            <option value="Caminhao">Constellation</option>
-            <option value="Caminhao">Cargo</option>
-            <option value="Caminhao">Delivery</option>
-            <option value="Caminhao">FH 540</option>
-            <option value="Caminhao">Axor</option>
-            <option value="Caminhao">Actros</option>
-            <option value="Caminhao">Scania R440</option>
-            <option value="Caminhao">Scania G420</option>
-            <option value="Caminhao">Iveco Stralis</option>
-            <option value="Caminhao">Volkswagen Worker</option>
-          </optgroup>
+          <option value="pequeno">Carro Pequeno</option>
+          <option value="caminhonete">Caminhonete</option>
+          <option value="van">Van</option>
+          <option value="caminhao">Caminhão</option>
         </select>
+
+        <fieldset>
+          <legend>Serviços desejados:</legend>
+          <label><input type="checkbox" name="servicos" value="lavagem-simples"> Lavagem Simples (externa)</label><br>
+          <label><input type="checkbox" name="servicos" value="lavagem-rapida-completa"> Lavagem Completa (interna + externa)</label><br>
+          <label><input type="checkbox" name="servicos" value="lavagem-seca"> Lavagem a Seco (ecológica)</label><br>
+          <label><input type="checkbox" name="servicos" value="lavagem-enceramento"> Lavagem + Enceramento</label><br>
+          <label><input type="checkbox" name="servicos" value="lavagem-tecnica"> Lavagem Técnica/Detalhada</label><br>
+          <label><input type="checkbox" name="servicos" value="lavagem-motor"> Lavagem de Motor</label><br>
+          <label><input type="checkbox" name="servicos" value="lavagem-polimento"> Polimento/Revitalização</label><br>
+          <label><input type="checkbox" name="servicos" value="lavagem-estofado"> Higienização de Bancos/Estofado</label>
+        </fieldset>
 
         <button type="submit">Enviar via WhatsApp</button>
       </form>
