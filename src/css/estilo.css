@@ -35,7 +35,7 @@ img{
 
 .cabecalho {
   background-color: #0D0D0D;
-  color: #EDAE4C; /* amarelo mais suave para não cansar tanto */
+  color: #fdfcff; /* amarelo mais suave para não cansar tanto */
   padding: 25px 20px; /* um pouco mais de espaço */
   text-align: center;
   font-family: "Notable", sans-serif;
@@ -46,7 +46,7 @@ img{
     font-family: "MinhaFonte";
     font-weight: 400;
     font-style: normal;
-    color: #EDAE4C;
+    color: #ffffff;
   }
 
   div {
@@ -106,7 +106,7 @@ main {
 
 /* Link WhatsApp */
 a.wpp {
-  color: #EDAE4C;
+  color: #f5f3f0;
   font-weight: 700;
   transition: background-color 0.3s, color 0.3s;
   padding: 4px 1px;
@@ -134,7 +134,13 @@ a.wpp:hover {
   color: #fff;
   text-decoration: none;
 }
-
+.enviar{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  top: 7px;
+  margin: 0px;
+}
 .precos {
     list-style: none;
     padding: 0;
@@ -218,10 +224,20 @@ section h2 {
   box-shadow: 0 0 6px #8167A5aa;
 }
 
+form {
+  label{
+        font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.4em;
+    }
+  }
+
+
 /* Botão */
 .formulario button {
-  background-color: #363535;
-  color: #EDAE4C;
+  background-color: #050505;
+  color: #fffdfa;
   border: none;
   padding: 15px 25px;
   font-size: 1.25em;
@@ -236,7 +252,7 @@ section h2 {
 }
 
 .formulario button:hover {
-  background-color: #0D0D0D;
+  background-color: #2f9117;
 }
 
 fieldset {
@@ -349,3 +365,4 @@ fieldset {
   transform: scale(1) rotateY(360deg);
  }
 }
+
