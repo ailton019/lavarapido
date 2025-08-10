@@ -239,6 +239,17 @@ section h2 {
   background-color: #0D0D0D;
 }
 
+fieldset {
+  legend{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3em;
+}
+}
+
+
+
 /* Rodapé fixo */
 .rodape {
   position: fixed;
@@ -281,4 +292,60 @@ section h2 {
     .dados-esta p {
         justify-content: center; /* centraliza conteúdo no mobile */
     }
+}
+
+/* From Uiverse.io by ke1221 */ 
+.check {
+ position: relative;
+ width: 15px;
+ height: 15px;
+ border-radius: 2px;
+ appearance: none;
+ background-color: #bbb;
+ transition: all .3s;
+ top: 6px;
+}
+
+.check::before {
+ content: '';
+ position: absolute;
+ border: solid #fff;
+ display: block;
+ width: .3em;
+ height: .6em;
+ border-width: 0 .2em .2em 0;
+ z-index: 1;
+ opacity: 0;
+ right: calc(50% - .3em);
+ top: calc(50% - .6em);
+ transform: rotate(0deg);
+ transition: all .3s;
+ transform-origin: center center;
+}
+
+.check:checked {
+ animation: a .3s ease-in forwards;
+ background-color: rgb(120, 190, 120);
+}
+
+.check:checked::before {
+ opacity: 1;
+ transform: rotate(405deg);
+}
+
+@keyframes a {
+ 0% {
+  opacity: 1;
+  transform: scale(1) rotateY(0deg);
+ }
+
+ 50% {
+  opacity: 0;
+  transform: scale(.8) rotateY(180deg);
+ }
+
+ 100% {
+  opacity: 1;
+  transform: scale(1) rotateY(360deg);
+ }
 }

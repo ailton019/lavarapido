@@ -42,35 +42,42 @@
     document.getElementById("valor-total").textContent = `R$ ${valorTotal.toFixed(2)}`;
   }
 
-  function enviarSolicitacao(evento) {
-    evento.preventDefault();
+function atualizarPreco() {
+  let valorTotal = valorBase;
 
-    const nome = document.getElementById("nome").value.trim();
-    const endereco = document.getElementById("endereco").value.trim();
-    const tipoVeiculo = document.getElementById("tipo-veiculo").value;
-    const valorFinal = document.getElementById("valor-total").textContent;
+  const servicos = document.querySelectorAll('input[name="servicos"]');
+  let lavagemSimplesChecked = false;
 
-    const servicosSelecionados = Array.from(
-      document.querySelectorAll('input[name="servicos"]:checked')
-    ).map(el => el.nextSibling.textContent.trim() || el.value);
-
-    if (!nome || !endereco || !tipoVeiculo || servicosSelecionados.length === 0) {
-      alert("Preencha todos os campos!");
-      return;
+  servicos.forEach(servico => {
+    if (servico.value === "lavagem-simples" && servico.checked) {
+      lavagemSimplesChecked = true;
     }
+  });
 
-    const numeroWhatsApp = "5511949409834";
-    const mensagem = encodeURIComponent(
-      `🚗 *Nova solicitação:*\n\n` +
-      `👤 Nome: ${nome}\n` +
-      `📍 Endereço: ${endereco}\n` +
-      `🚙 Veículo: ${tipoVeiculo}\n` +
-      `🛠 Serviços: ${servicosSelecionados.join(", ")}\n` +
-      `💰 Valor Total: ${valorFinal}`
-    );
+  servicos.forEach(servico => {
+    // Se lavagem simples está marcada, desabilita os outros serviços (menos ela mesma)
+    if (lavagemSimplesChecked && servico.value !== "lavagem-simples") {
+      servico.disabled = true;
+      servico.checked = false; // também desmarca
+    } else {
+      servico.disabled = false;
+    }
+  });
 
-    window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, "_blank");
+  // Agora calcula preço
+  if (lavagemSimplesChecked) {
+    valorTotal = valorBase / 2;
+  } else {
+    servicos.forEach(servico => {
+      if (servico.checked && servico.value !== "lavagem-rapida-completa" && servico.value !== "lavagem-simples") {
+        valorTotal += 20;
+      }
+    });
   }
+
+  document.getElementById("valor-total").textContent = `R$ ${valorTotal.toFixed(2)}`;
+}
+
 
   // Eventos
   document.getElementById("tipo-veiculo").addEventListener("change", selecionarVeiculo);
