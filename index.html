@@ -1,80 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="./src/css/estilo.css" />
-  <link rel="shortcut icon" href="./src/img/icon-carro.png" type="image/x-icon">
-  <title>Lava Rápido</title>
-</head>
-<body>
-  <header class="cabecalho">
-    <h1>Lava Rápido</h1>
-    <p>ENDEREÇO</p>
-    <p>
-      <a href="#" class="wpp" target="_blank">Telefone (11)98888-8888</a>
-    </p>
-    <p>Horário de Funcionamento: 08:00 - 18:00</p>
-    <p>Fazemos a retirada do veículo para lavagem.</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./src/css/estilo.css" />
+    <link
+      rel="shortcut icon"
+      href="./src/img/icon-carro.png"
+      type="image/x-icon"
+    />
+    <title>Lava Rápido</title>
+  </head>
+  <body>
+    <div class="img-carro">
+      <img src="./src/img/fundo.png" alt="img-carro" />
+    </div>
+    <header class="cabecalho">
+      <h1 >Lava Rápido</h1>
+      <div class="dados-esta">
+        <p>
+          Endereço: Rua dos Boitas 188
+          <img
+            class="img-local"
+            src="/src/img/endereço-48.png"
+            alt="img-locali"
+          />
+        </p>
+        <p>
+          <img class="wpp-img" src="./src/img/whatsapp-48.png" alt="WhatsApp" />
+          <a href="#" class="wpp" target="_blank">Telefone (11)98888-8888</a>
+        </p>
+      </div>
+      <div class="dados-esta">
+        <p > <img class="wpp-img" src="./src/img/relogio.png" alt="horario img">
+          Horário de Funcionamento: 08:00 - 18:00</p>
+        <p> <img class="wpp-img" src="./src/img/icons8-van-48.png" alt="img-carro">
+          Fazemos a retirada do veículo para lavagem.</p>
+      </div>
+    </header>
 
-  <main class="conteudo">
-  <h2>Valores por tipo de veículo</h2>
-  <P><strong>Lavagem simples, tem é 50% de desconto.</strong></P>
-  <ul class="precos">
-    <li><span>🚗 CARROS PEQUENOS</span><span><strong>R$ 60,00</strong></span></li>
-    <li><span>🚙 CAMINHONETES</span><span><strong>R$ 100,00</strong></span></li>
-    <li><span>🚐 VANS</span><span><strong>R$ 150,00</strong></span></li>
-    <li><span>🚛 CAMINHÕES</span><span><strong>R$ 200,00</strong></span></li>
-    <li><span>🏍️ MOTOS</span><span><strong>R$ 100,00</strong></span></li>
-  </ul>
-    
+    <main class="conteudo">
+      <h2>Valores por tipo de veículo</h2>
+      <p class="aviso"><strong>Lavagem simples, tem é 50% de desconto.</strong></p>
+      <ul class="precos">
+        <li>
+          <span>🚗 CARROS PEQUENOS</span><span><strong>R$ 60,00</strong></span>
+        </li>
+        <li>
+          <span>🚙 CAMINHONETES</span><span><strong>R$ 100,00</strong></span>
+        </li>
+        <li>
+          <span>🚐 VANS</span><span><strong>R$ 150,00</strong></span>
+        </li>
+        <li>
+          <span>🚛 CAMINHÕES</span><span><strong>R$ 200,00</strong></span>
+        </li>
+        <li>
+          <span>🏍️ MOTOS</span><span><strong>R$ 100,00</strong></span>
+        </li>
+      </ul>
 
-    <section class="formulario">
-      <h2>Solicitar retirada do veículo</h2>
+      <section class="formulario">
+        <h2>Solicitar retirada do veículo</h2>
 
-        <p><strong>Valor total:</strong> <span id="valor-total">R$ 0,00</span></p>
+        <p class="valortotal">
+          <strong>Valor total:</strong> <span id="valor-total">R$ 0,00</span>
+        </p>
 
-      <form onsubmit="enviarSolicitacao(event)">
-        <label for="nome">Seu nome:</label>
-        <input type="text" id="nome" required />
+        <form onsubmit="enviarSolicitacao(event)">
+          <label for="nome">Seu nome:</label>
+          <input type="text" id="nome" required />
 
-        <label for="endereco">Endereço completo C/ Número:</label>
-        <input type="text" id="endereco" required />
+          <label for="endereco">Endereço completo C/ Número:</label>
+          <input type="text" id="endereco" required />
 
-        <label for="tipo-veiculo">Tipo de veículo:</label>
-        <select id="tipo-veiculo" required>
-          
-          <option value="">Selecione</option>
-          <option value="moto">MOTO</option>
-          <option value="pequeno">CARRO PEQUENO</option>
-          <option value="caminhonete">CAMINHONETE</option>
-          <option value="van">VAN</option>
-          <option value="caminhao">CAMINHÃO</option>
-        </select>
+          <label for="tipo-veiculo">Tipo de veículo:</label>
+          <select id="tipo-veiculo" required>
+            <option value="">Selecione</option>
+            <option value="moto">MOTO</option>
+            <option value="pequeno">CARRO PEQUENO</option>
+            <option value="caminhonete">CAMINHONETE</option>
+            <option value="van">VAN</option>
+            <option value="caminhao">CAMINHÃO</option>
+          </select>
 
-        <fieldset>
-          <legend>Serviços desejados:</legend>
-          <label><input type="checkbox" name="servicos" value="lavagem-simples"> Lavagem Simples (externa)</label><br>
-          <label><input type="checkbox" name="servicos" value="lavagem-rapida-completa"> Lavagem Completa (interna + externa)</label><br>
-          <label><input type="checkbox" name="servicos" value="lavagem-seca"> Lavagem a Seco (ecológica)</label><br>
-          <label><input type="checkbox" name="servicos" value="lavagem-enceramento"> Lavagem + Enceramento</label><br>
-          <label><input type="checkbox" name="servicos" value="lavagem-tecnica"> Lavagem Técnica/Detalhada</label><br>
-          <label><input type="checkbox" name="servicos" value="lavagem-motor"> Lavagem de Motor</label><br>
-          <label><input type="checkbox" name="servicos" value="lavagem-polimento"> Polimento/Revitalização</label><br>
-          <label><input type="checkbox" name="servicos" value="lavagem-estofado"> Higienização de Bancos/Estofado</label>
-        </fieldset>
+          <fieldset>
+            <legend>Serviços desejados:</legend>
+            <label
+              ><input type="checkbox" name="servicos" value="lavagem-simples" />
+              Lavagem Simples (externa)</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="servicos"
+                value="lavagem-rapida-completa"
+              />
+              Lavagem Completa (interna + externa)</label
+            ><br />
+            <label
+              ><input type="checkbox" name="servicos" value="lavagem-seca" />
+              Lavagem a Seco (ecológica)</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="servicos"
+                value="lavagem-enceramento"
+              />
+              Lavagem + Enceramento</label
+            ><br />
+            <label
+              ><input type="checkbox" name="servicos" value="lavagem-tecnica" />
+              Lavagem Técnica/Detalhada</label
+            ><br />
+            <label
+              ><input type="checkbox" name="servicos" value="lavagem-motor" />
+              Lavagem de Motor</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="servicos"
+                value="lavagem-polimento"
+              />
+              Polimento/Revitalização</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="servicos"
+                value="lavagem-estofado"
+              />
+              Higienização de Bancos/Estofado</label
+            >
+          </fieldset>
 
-        <button type="submit">Enviar via WhatsApp</button>
-      </form>
-    </section>
- 
+          <button type="submit">Enviar via WhatsApp</button>
+        </form>
+      </section>
+    </main>
+    <footer class="rodape">
+      <p>&copy; 2025 Lava Rápido. Todos os direitos reservados.</p>
+    </footer>
 
-  </main>
-  <footer class="rodape">
-    <p>&copy; 2025 Lava Rápido. Todos os direitos reservados.</p>
-  </footer>
-
-  <script src="./src/js/script.js"></script>
-</body>
+    <script src="./src/js/script.js"></script>
+  </body>
 </html>

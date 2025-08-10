@@ -1,40 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@font-face {
+  font-family: 'MinhaFonte';
+  src: url('/src/font/Maximum Voltage.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  }
+
+
 /* Cabeçalho */
+.img-carro {
+    background-image: url('../src/img/fundo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* mantém proporção */
+    height: 100px; /* altura fixa */
+    width: 100%; /* largura fixa */
+    margin: 0 auto; /* centraliza horizontalmente */
+}
+
+img{
+    height: 100px; /* altura fixa */
+    width: 100%;
+  }
+
 .cabecalho {
-  background-color: #7344b6; /* mantém */
-  color: #f0f0a0; /* amarelo mais suave para não cansar tanto */
+  background-color: #0D0D0D;
+  color: #EDAE4C; /* amarelo mais suave para não cansar tanto */
   padding: 25px 20px; /* um pouco mais de espaço */
   text-align: center;
   font-family: "Notable", sans-serif;
   box-shadow: 0 3px 8px rgba(129, 103, 165, 0.4); /* leve sombra  destacar */
-  border-radius: 13px;
+  border-radius: 0px 0px 13px 13px;
+  margin-bottom: 10px;
+  h1 {
+    font-family: "MinhaFonte";
+    font-weight: 400;
+    font-style: normal;
+    color: #EDAE4C;
+  }
+
+  div {
+    p {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    }
+  }
 }
 
+main {
+  h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0px  10px;
+  }
+  li {
+    span{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3em;
+    }
+  }
+  .aviso{
+    margin: 10px;
+  }
+  .aviso:hover{
+    color: red;
+    background-color: black;
+    border-radius: 5px;
+    padding: 2px;
+  }
+}
+
+
+.dados-esta {
+    display: flex;
+    width: 100%; /* ocupa toda a largura disponível */
+    min-height: 40px; /* altura mínima, mas deixa crescer */
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap; /* permite quebrar linha */
+}
+
+
 .cabecalho p {
+  text-align: left;
   font-size: 1.1em;
   margin: 6px 0;
   font-weight: 500;
+
 }
 
 /* Link WhatsApp */
 a.wpp {
-  color: #f0f0a0;
+  color: #EDAE4C;
   font-weight: 700;
   transition: background-color 0.3s, color 0.3s;
-  padding: 6px 12px;
+  padding: 4px 1px;
   border-radius: 8px;
   display: inline-block;
+  text-decoration: none;
 }
 
+.wpp-img{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  top: 3px;
+  margin: 0px;
+}
+.img-local{
+    position: relative;
+  width: 30px;
+  height: 30px;
+  top: 3px;
+  margin: 0px;
+}
 a.wpp:hover {
-  background-color: #5b4a75; /* tom mais escuro e suave do roxo */
+  background-color: #1ed406; /* tom mais escuro e suave do roxo */
   color: #fff;
   text-decoration: none;
 }
-  .precos {
+
+.precos {
     list-style: none;
     padding: 0;
-    margin: 0;
-  }
+    margin: 10px;
+}
+
 
   .precos li {
     display: flex;
@@ -52,14 +154,24 @@ section {
   margin-bottom: 30px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.07);
   border: none; /* sem borda para visual mais leve */
+  .valortotal{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em;
+  }
 }
 
 /* Títulos das seções */
 section h2 {
-  font-family: "Notable", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 2em;
   margin-bottom: 20px;
-  color: #5b4a75;
+  color: #F2F2F2;
+  background-color: #070707;
+  width: 330px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 /* Lista de valores */
@@ -88,7 +200,7 @@ section h2 {
   width: 100%;
   padding: 12px 15px;
   margin-bottom: 20px;
-  border: 1.5px solid #c4b6dc;
+  border: 1.5px solid #FF445A;
   border-radius: 8px;
   font-size: 1.1em;
   transition: border-color 0.3s ease;
@@ -104,8 +216,8 @@ section h2 {
 
 /* Botão */
 .formulario button {
-  background-color: #8167A5;
-  color: #f0f0a0;
+  background-color: #363535;
+  color: #EDAE4C;
   border: none;
   padding: 15px 25px;
   font-size: 1.25em;
@@ -120,7 +232,7 @@ section h2 {
 }
 
 .formulario button:hover {
-  background-color: #5b4a75;
+  background-color: #0D0D0D;
 }
 
 /* Rodapé fixo */
@@ -129,9 +241,9 @@ section h2 {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background-color: #2e294e;
-  color: #d7deea;
+  height: 50px;
+  background-color: #0D0D0D;
+  color: #F2F2F2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,4 +262,19 @@ section h2 {
   .formulario button {
     font-size: 1.15em;
   }
+}
+@media (max-width: 768px) {
+    .dados-esta {
+        flex-direction: column; /* muda para coluna no celular */
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .cabecalho {
+        text-align: center;
+    }
+
+    .dados-esta p {
+        justify-content: center; /* centraliza conteúdo no mobile */
+    }
 }
